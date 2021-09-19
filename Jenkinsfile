@@ -22,11 +22,23 @@ pipeline {
                 echo 'Build Automation'
             }
         }
-        stage('E2E Tests') {
-            steps {
-                echo 'Execute Unit Tests'
-            }
-        }
+		parallel {		
+			stage('E2E Tests') {
+				steps {
+					echo 'Execute Unit Tests'
+				}
+			}
+			stage('Load Tests') {
+				steps {
+					echo 'Execute Load Tests'
+				}
+			}
+			stage('Security Tests') {
+				steps {
+					echo 'Execute Security Tests'
+				}
+			}			
+		}
         stage('Build & Push Images') {
             steps {
                 echo 'Build & Push Docker Images to Registry'
