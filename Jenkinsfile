@@ -24,7 +24,7 @@ pipeline {
         }
 	stage('Parallel Stages-Tests') {
 		when {
-			branch 'master'
+			branch 'main'
 		}
 		parallel {		
 			stage('E2E Tests') {
