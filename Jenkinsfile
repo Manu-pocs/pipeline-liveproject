@@ -42,6 +42,11 @@ pipeline {
                 echo 'Build & Push Docker Images to Registry'
             }
         }
+	    		stage('Scan Image') {
+			steps {
+				echo 'Scan Image'
+			}
+		}
         stage('TF Plan') {
             steps {
                 echo 'Create Terraform Plan'
